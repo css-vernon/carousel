@@ -1,0 +1,52 @@
+<style>
+    
+    body {
+        counter-reset: carousel;
+    }
+    .carousel{
+        display: flex;
+        --carousel-active-item: 1;
+    }
+
+    .carousel-item {
+        width: 10em;
+        height: 7em;
+        background-image: paint(carousel-item);
+        counter-increment: carousel-item;
+        --carousel-item: counter(carousel-item);
+    }
+
+    .carousel-item:active-carousel-item {
+        background: blue;
+    }
+
+</style>
+
+<div class="carousel" style="--carousel-active-item: 1">
+    <div class="carousel-item" style="--carousel-item: 1;">
+        First
+    </div>
+    <div class="carousel-item" style="--carousel-item: 2;">
+        Second
+    </div>
+    <div class="carousel-item" style="--carousel-item: 3;">
+        Last
+    </div>
+</div>
+
+<div class="carousel" style="--carousel-active-item: 2">
+    <div class="carousel-item" style="--carousel-item: 1;">
+        First
+    </div>
+    <div class="carousel-item" style="--carousel-item: 2;">
+        Second
+    </div>
+    <div class="carousel-item" style="--carousel-item: 3;">
+        Last
+    </div>
+</div>
+
+<script src="houdinify.js"></script>
+<script>
+    paintWorklet.addModule("paintWorklet.js")
+</script>
